@@ -6,7 +6,9 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.example.domain.Vegetable;
@@ -80,9 +82,13 @@ public class Batch {
 	}
 	
 	public void exportCSV(List<Vegetable> vegetableList) {
+		Date d = new Date();
+		SimpleDateFormat d1 = new SimpleDateFormat("yyyyMMdd");
+		String s = d1.format(d);
+
 		try {
 			// 出力ファイルの作成
-			FileWriter fw = new FileWriter("vegetabledata.csv", false);
+			FileWriter fw = new FileWriter("order_" + s + ".csv", false);
 			
 			// PrintWriterクラスのオブジェクトを生成
 			PrintWriter pw = new PrintWriter(new BufferedWriter(fw));
@@ -101,10 +107,10 @@ public class Batch {
 			
 			// データを書き込む
 			for(Vegetable vegetable : vegetableList) {
-				pw.print(vegetable.getName());
-				pw.print(vegetable.getDescription());
-				pw.print(vegetable.getPrice());
-				pw.print(vegetable.getColor());
+				pw.print(vegetable.getName() + ", ");
+				pw.print(vegetable.getDescription() + ", ");
+				pw.print(vegetable.getPrice() + ", ");
+				pw.print(vegetable.getColor() + ", ");
 				pw.print(vegetable.getDeleted());
 				pw.println();
 			}
