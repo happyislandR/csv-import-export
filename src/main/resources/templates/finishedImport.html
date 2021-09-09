@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="/css/base.css">
+<title>Insert title here</title>
+</head>
+<body>
+以下のデータをCSVから取り込みました！<br>
+<table>
+	<tbody>
+		<tr th:each="vegetable : ${vegetableList}">
+			<td th:text="${vegetable.name}">dummy</td>
+			<td th:text="${vegetable.description}">dummy</td>
+			<td th:text="${vegetable.price}">dummy</td>
+			<td th:text="${vegetable.color}">dummy</td>
+			<td th:text="${vegetable.deleted}">dummy</td>
+		</tr>
+	</tbody>
+</table>
+</body>
+</html>

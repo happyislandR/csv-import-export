@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form method="post" th:action="@{/csv/import}">
+<button>CSVからデータベースに取り込む</button>
+</form>
+<br>
+<form method="post" th:action="@{/csv/export}">
+<button>データベースからCSVに出力する</button>
+</form>
+
+</body>
+</html>
